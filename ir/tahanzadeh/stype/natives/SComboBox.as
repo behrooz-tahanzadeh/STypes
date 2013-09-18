@@ -1,12 +1,24 @@
-package ir.tahanzadeh.stype.natives{
-
+package ir.tahanzadeh.stype.natives
+{
+/*import declarations */
 import fl.controls.ComboBox;
+import org.osflash.signals.natives.sets.ComboBoxSignalSet;
 
 
-public class SComboBox{
+
+
+/**
+ * 
+ * @author Behrooz Tahanzadeh
+ * 
+ */
+public class SComboBox
+{
 	
 	private var	_value:ComboBox,
 				_signal:ComboBoxSignalSet;
+	
+	
 	
 	
 	public function SComboBox(value:ComboBox, eventHandler:Object = null)
@@ -26,24 +38,6 @@ public class SComboBox{
 	public function get value():ComboBox{return _value;}//EOF
 	
 	public function get signal():ComboBoxSignalSet{return _signal;}//EOF
+	
 }//EOC
 }//EOP
-
-/*Secret Class*/
-import fl.controls.ComboBox;
-import flash.events.Event;
-import org.osflash.signals.natives.NativeSignal;
-import org.osflash.signals.natives.sets.EventDispatcherSignalSet;
-
-class ComboBoxSignalSet extends EventDispatcherSignalSet
-{
-	public function ComboBoxSignalSet(target:ComboBox)
-	{
-		super(target);
-	}
-	
-	public function get change():NativeSignal
-	{
-		return getNativeSignal(Event.CHANGE);
-	}
-}//EOC

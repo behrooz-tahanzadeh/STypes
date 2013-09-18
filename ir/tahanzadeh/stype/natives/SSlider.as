@@ -2,11 +2,15 @@ package ir.tahanzadeh.stype.natives
 {
 /*import declarations */
 import fl.controls.Slider;
+import org.osflash.signals.natives.sets.SliderSignalSet;
+
+
+
 
 /**
- * contains a Slider and its signals
- * SSliders value can not change after creation
- * Signal { Click }
+ * 
+ * @author Behrooz Tahanzadeh
+ * 
  */
 public class SSlider
 {
@@ -30,24 +34,6 @@ public class SSlider
 	public function get value():Slider{return _value;}//EOF
 	
 	public function get signal():SliderSignalSet{return _signal;}//EOF
+	
 }//EOC
 }//EOP
-
-/*Secret Class*/
-import fl.controls.Slider;
-import flash.events.*;
-import org.osflash.signals.natives.NativeSignal;
-import org.osflash.signals.natives.sets.EventDispatcherSignalSet;
-
-class SliderSignalSet extends EventDispatcherSignalSet
-{
-	public function SliderSignalSet(target:Slider)
-	{
-		super(target);
-	}
-	
-	public function get click():NativeSignal
-	{
-		return getNativeSignal(MouseEvent.CLICK);
-	}
-}//EOC

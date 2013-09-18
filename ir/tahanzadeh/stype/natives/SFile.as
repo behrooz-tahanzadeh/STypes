@@ -1,13 +1,15 @@
 package ir.tahanzadeh.stype.natives
 {
-import flash.filesystem.File;
-
 /*import declarations */
+import flash.filesystem.File;
+import org.osflash.signals.natives.sets.FileSignalSet;
+
+
+
 
 /**
  * 
- * contains a File and its signals.
- * SFiles value can not change after creation.
+ * @author Behrooz Tahanzadeh
  * 
  */
 public class SFile
@@ -27,27 +29,3 @@ public class SFile
 	
 }//EOC
 }//EOP
-
-/*Secret Class*/
-import flash.events.*;
-import flash.filesystem.File;
-import org.osflash.signals.natives.NativeSignal;
-import org.osflash.signals.natives.sets.EventDispatcherSignalSet;
-
-class FileSignalSet extends EventDispatcherSignalSet
-{
-	public function FileSignalSet(target:File)
-	{
-		super(target);
-	}
-	
-	public function get select():NativeSignal
-	{
-		return getNativeSignal(Event.SELECT);
-	}
-	
-	public function get cancel():NativeSignal
-	{
-		return getNativeSignal(Event.CANCEL);
-	}
-}//EOC

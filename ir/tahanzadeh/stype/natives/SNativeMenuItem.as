@@ -1,9 +1,17 @@
 package ir.tahanzadeh.stype.natives
 {
-
+/* import declarations */
 import flash.display.NativeMenuItem;
+import org.osflash.signals.natives.sets.NativeMenuItemSignalSet;
 
 
+
+
+/**
+ * 
+ * @author Behrooz Tahanzadeh
+ * 
+ */
 public class SNativeMenuItem
 {
 	private var	_value:NativeMenuItem,
@@ -27,25 +35,6 @@ public class SNativeMenuItem
 	public function get value():NativeMenuItem{return _value;}//EOF
 	
 	public function get signal():NativeMenuItemSignalSet{return _signal;}//EOF
+	
 }//EOC
 }//EOP
-
-/*Secret Class*/
-
-import flash.display.NativeMenuItem;
-import flash.events.Event;
-import org.osflash.signals.natives.NativeSignal;
-import org.osflash.signals.natives.sets.EventDispatcherSignalSet;
-
-class NativeMenuItemSignalSet extends EventDispatcherSignalSet
-{
-	public function NativeMenuItemSignalSet(target:NativeMenuItem)
-	{
-		super(target);
-	}
-	
-	public function get select():NativeSignal
-	{
-		return getNativeSignal(Event.SELECT);
-	}
-}//EOC

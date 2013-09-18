@@ -2,22 +2,28 @@ package ir.tahanzadeh.stype.natives
 {
 /* import declarations */
 import fl.controls.CheckBox;
+import org.osflash.signals.natives.sets.LabelButtonSignalSet;
+
+
+
 
 /**
- * contains a button and its signals
- * Sbuttons value can not change after creation
- * Signal { click }
+ * 
+ * @author Behrooz Tahanzadeh
+ * 
  */
 public class SCheckBox
 {
 	private var	_value:CheckBox,
-				_signal:CheckBoxSignalSet;
+				_signal:LabelButtonSignalSet;
 	
-		
+	
+	
+	
 	public function SCheckBox(value:CheckBox, eventHandler:Object = null)
 	{
 		_value = value;
-		_signal = new CheckBoxSignalSet(_value);
+		_signal = new LabelButtonSignalSet(_value);
 		
 		if(eventHandler)
 		{
@@ -30,27 +36,7 @@ public class SCheckBox
 	
 	public function get value():CheckBox{return _value;}//EOF
 	
-	public function get signal():CheckBoxSignalSet{return _signal;}
+	public function get signal():LabelButtonSignalSet{return _signal;}
+	
 }//EOC
 }//EOP
-
-/*Secret Class*/
-import fl.controls.CheckBox;
-import flash.events.*;
-import org.osflash.signals.natives.NativeSignal;
-import org.osflash.signals.natives.sets.EventDispatcherSignalSet;
-
-class CheckBoxSignalSet extends EventDispatcherSignalSet
-{
-	public function CheckBoxSignalSet(target:CheckBox)
-	{
-		super(target);
-	}
-	
-	public function get click():NativeSignal
-	{
-		return getNativeSignal(MouseEvent.CLICK);
-	}
-	
-	
-}//EOC

@@ -1,11 +1,16 @@
-package ir.tahanzadeh.stype.natives{
+package ir.tahanzadeh.stype.natives
+{
 /*import declarations */
 import fl.controls.RadioButtonGroup;
+import org.osflash.signals.natives.sets.RadioButtonGroupSignalSet;
+
+
+
 
 /**
- * contains a RadioButtonGroup and its signals
- * SRadioButtonGroups value can not change after creation
- * Signal { Click }
+ * 
+ * @author Behrooz Tahanzadeh
+ * 
  */
 public class SRadioButtonGroup
 {
@@ -29,24 +34,6 @@ public class SRadioButtonGroup
 	public function get value():RadioButtonGroup{return _value;}//EOF
 	
 	public function get signal():RadioButtonGroupSignalSet{return _signal;}//EOF
+	
 }//EOC
 }//EOP
-
-/*Secret Class*/
-import fl.controls.RadioButtonGroup;
-import flash.events.*;
-import org.osflash.signals.natives.NativeSignal;
-import org.osflash.signals.natives.sets.EventDispatcherSignalSet;
-
-class RadioButtonGroupSignalSet extends EventDispatcherSignalSet
-{
-	public function RadioButtonGroupSignalSet(target:RadioButtonGroup)
-	{
-		super(target);
-	}
-	
-	public function get change():NativeSignal
-	{
-		return getNativeSignal(Event.CHANGE);
-	}
-}//EOC

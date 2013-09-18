@@ -1,12 +1,17 @@
-package ir.tahanzadeh.stype.natives{
+package ir.tahanzadeh.stype.natives
+{
 /*import declarations */
 import fl.controls.NumericStepper;
-import fl.controls.NumericStepper;
+import org.osflash.signals.natives.sets.NumericStepperSignalSet;
+import org.osflash.signals.natives.sets.UIComponentSignalSet;
+
+
+
 
 /**
- * contains a NumericStepper and its signals
- * SNumericSteppers value can not change after creation
- * Signal { Click }
+ * 
+ * @author Behrooz Tahanzadeh
+ * 
  */
 public class SNumericStepper
 {
@@ -32,22 +37,3 @@ public class SNumericStepper
 	public function get signal():NumericStepperSignalSet{return _signal;}//EOF
 }//EOC
 }//EOP
-
-/*Secret Class*/
-import fl.controls.NumericStepper;
-import flash.events.*;
-import org.osflash.signals.natives.NativeSignal;
-import org.osflash.signals.natives.sets.EventDispatcherSignalSet;
-
-class NumericStepperSignalSet extends EventDispatcherSignalSet
-{
-	public function NumericStepperSignalSet(target:NumericStepper)
-	{
-		super(target);
-	}
-	
-	public function get change():NativeSignal
-	{
-		return getNativeSignal(Event.CHANGE);
-	}
-}//EOC

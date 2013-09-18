@@ -1,14 +1,15 @@
 package ir.tahanzadeh.stype.natives
 {
+/*import declarations */
 import flash.net.URLStream;
 import org.osflash.signals.natives.sets.URLStreamSignalSet;
 
-/*import declarations */
+
+
 
 /**
  * 
- * contains a URLStream and its signals.
- * SURLStreams value can not change after creation.
+ * @author Behrooz Tahanzadeh
  * 
  */
 public class SURLStream
@@ -19,20 +20,23 @@ public class SURLStream
 	
 	
 	
-	public function SURLStream(value:URLStream = null, onComplete:Function = null, onIOError:Function = null)
+	public function SURLStream(value:URLStream = null , eventHandler:Object = null)
 	{
 		_value = value?value:new URLStream();
 		_signal = new URLStreamSignalSet(_value);
 		
-		Boolean(onComplete) && _signal.complete.add(onComplete);
-		Boolean(onIOError) && _signal.ioError.add(onIOError);
+		if(eventHandler)
+		{
+			for (var key:String in eventHandler)
+			{
+				_signal[key] && _signal[key].add(eventHandler[key])
+			}
+		}
 	}//EOF
-	
-	
-	
 	
 	public function get value():URLStream{return _value;}//EOF
 	
 	public function get signal():URLStreamSignalSet{return _signal;}//EOF
+	
 }//EOC
 }//EOP

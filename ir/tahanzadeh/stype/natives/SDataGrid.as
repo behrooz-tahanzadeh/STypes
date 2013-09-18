@@ -1,8 +1,17 @@
 package ir.tahanzadeh.stype.natives
 {
+/*import declarations */
 import fl.controls.DataGrid;
+import org.osflash.signals.natives.sets.DataGridSignalSet;
 
 
+
+
+/**
+ * 
+ * @author Behrooz Tahanzadeh
+ * 
+ */
 public class SDataGrid
 {
 	private var	_value:DataGrid,
@@ -28,23 +37,3 @@ public class SDataGrid
 	public function get signal():DataGridSignalSet{return _signal;}//EOF
 }//EOC
 }//EOP
-
-/*Secret Class*/
-
-import fl.controls.DataGrid;
-import flash.events.Event;
-import org.osflash.signals.natives.NativeSignal;
-import org.osflash.signals.natives.sets.EventDispatcherSignalSet;
-
-class DataGridSignalSet extends EventDispatcherSignalSet
-{
-	public function DataGridSignalSet(target:DataGrid)
-	{
-		super(target);
-	}
-	
-	public function get change():NativeSignal
-	{
-		return getNativeSignal(Event.CHANGE);
-	}
-}//EOC

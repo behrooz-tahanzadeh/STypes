@@ -1,9 +1,17 @@
 ﻿package ir.tahanzadeh.stype.natives
 {
-
+/*import declarations */
 import fl.controls.TextInput;
+import org.osflash.signals.natives.sets.TextInputSignalSet;
 
 
+
+
+/**
+ * 
+ * @author Behrooz Tahanzadeh
+ * 
+ */
 public class STextInput
 {
 	
@@ -28,30 +36,6 @@ public class STextInput
 	public function get value():TextInput{return _value;}//EOF
 	
 	public function get signal():TextInputSignalSet{return _signal;}//EOF
+	
 }//EOC
 }//EOP
-
-
-import fl.controls.TextInput;
-import fl.events.*;
-import flash.events.Event;
-import org.osflash.signals.natives.NativeSignal;
-import org.osflash.signals.natives.sets.EventDispatcherSignalSet;
-
-class TextInputSignalSet extends EventDispatcherSignalSet
-{
-	public function TextInputSignalSet(target:TextInput)
-	{
-		super(target);
-	}
-	
-	public function get enter():NativeSignal
-	{
-		return getNativeSignal(ComponentEvent.ENTER);
-	}
-	
-	public function get change():NativeSignal
-	{
-		return getNativeSignal(Event.CHANGE);
-	}
-}//EOC
