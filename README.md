@@ -1,9 +1,10 @@
-h1.STypes: create and handle in one line!
+STypes: create and handle in one line!
 ======
 
 package of basic Action Script classes based on A3 Signal package
 
-h2.Syntax
+Syntax
+----------
 convert this
 <pre><code>
   var dataGrid:DataGrid = new DataGrid();
