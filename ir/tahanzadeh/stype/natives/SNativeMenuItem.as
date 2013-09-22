@@ -1,6 +1,6 @@
 package ir.tahanzadeh.stype.natives
 {
-/* import declarations */
+//import declarations
 import flash.display.NativeMenuItem;
 import org.osflash.signals.natives.sets.NativeMenuItemSignalSet;
 
@@ -12,29 +12,21 @@ import org.osflash.signals.natives.sets.NativeMenuItemSignalSet;
  * @author Behrooz Tahanzadeh
  * 
  */
-public class SNativeMenuItem
+public class SNativeMenuItem extends SNativeType
 {
-	private var	_value:NativeMenuItem,
-				_signal:NativeMenuItemSignalSet;
-	
-	
-	public function SNativeMenuItem(value:NativeMenuItem, eventHandler:Object = null)
+	public function SNativeMenuItem(value:NativeMenuItem=null, properties:Object = null, eventHandler:Object = null)
 	{
-		_value = value;
+		_value = value || new NativeMenuItem();
 		_signal = new NativeMenuItemSignalSet(_value);
 		
-		if(eventHandler)
-		{
-			for (var key:String in eventHandler)
-			{
-				_signal[key] && _signal[key].add(eventHandler[key])
-			}
-		}
-	}
+		setProperties(properties, eventHandler);
+	}//eof
 	
-	public function get value():NativeMenuItem{return _value;}//EOF
+	public function get value():NativeMenuItem
+		{return _value;}//eof
 	
-	public function get signal():NativeMenuItemSignalSet{return _signal;}//EOF
+	public function get signal():NativeMenuItemSignalSet
+		{return _signal;}//eof
 	
-}//EOC
-}//EOP
+}//eoc
+}//eop
