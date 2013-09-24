@@ -1,4 +1,4 @@
-#STypes: create and handle in one line!
+#STypes: create, assign and handle in one line!
 > [Behrooz Tahanzadeh](http://b-tz.com)<br/>
 > sep 2013
 
@@ -27,5 +27,7 @@ var sDataGrid:SDataGrid = SDataGrid(null,
   {change:dataGridOnChange , resize:dataGridOnResize}
 );
 ```
+
+[My blog post about SType](http://b-tz.com/2013/09/stype-action-script-library/)<br/>
 
 
