@@ -1,6 +1,8 @@
 ﻿package ir.tahanzadeh.stype.deluxes
 {
 /* import declarations */
+import ir.tahanzadeh.stype.deluxes.sets.GenericSignalSet;
+
 import org.osflash.signals.Signal;
 import org.osflash.signals.events.GenericEvent;
 
@@ -12,7 +14,7 @@ import org.osflash.signals.events.GenericEvent;
  */
 public class SBoolean
 {
-	private var _signal:BooleanSignalSet,
+	private var _signal:GenericSignalSet,
 				_value:Boolean;
 	
 	/**
@@ -21,7 +23,7 @@ public class SBoolean
 	public function SBoolean(value:Boolean=false)
 	{
 		_value = value;
-		_signal = new BooleanSignalSet(this);
+		_signal = new GenericSignalSet(this);
 	}
 	
 	/**
@@ -33,41 +35,24 @@ public class SBoolean
 	 *value setter function
 	 * dispatch signal.change after value changes
 	 */
-	public function set value(value:Boolean):void{
+	public function set value(value:Boolean):void
+	{
 		if(_value == value)return;
 		_value = value;
-		this.signal.change.dispatch(new GenericEvent());
+		this.signal.change.dispatch();
 	}//EOF
 	
 	/**
 	* signal getter function 
 	*/
-	public function get signal():BooleanSignalSet{return _signal;}//EOF
+	public function get signal():GenericSignalSet{return _signal;}//EOF
 	
 	/**
 	 * overrides default toString behavior
 	 */
 	public function toString() : String{
 		return "[SBoolean value="+this.value+"]";
-	}//EOF
+	}//eof
 	
-}//EOC
-}//EOP
-
-/*Secret Classes*/
-import ir.tahanzadeh.stype.deluxes.DeluxeSignalSet;
-import ir.tahanzadeh.stype.deluxes.SBoolean;
-import org.osflash.signals.DeluxeSignal;
-
-class BooleanSignalSet extends DeluxeSignalSet
-{
-	public function BooleanSignalSet(target:SBoolean) 
-	{
-		super(target);
-	}
-	
-	public function get change():DeluxeSignal
-	{
-		return getDeluxeSignal('change');
-	}
-}//EOC
+}//eoc
+}//eop

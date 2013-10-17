@@ -1,5 +1,6 @@
 ﻿package ir.tahanzadeh.stype.deluxes
 {
+import ir.tahanzadeh.stype.deluxes.sets.GenericSignalSet;
 import org.osflash.signals.events.GenericEvent;
 
 /**
@@ -10,7 +11,7 @@ import org.osflash.signals.events.GenericEvent;
 
 public class SInt
 {	
-	private var _signal:IntSignalSet,
+	private var _signal:GenericSignalSet,
 				_value:int;
 	
 	/**
@@ -19,7 +20,7 @@ public class SInt
 	public function SInt(value:int=0)
 	{
 		_value = value;
-		_signal = new IntSignalSet(this);
+		_signal = new GenericSignalSet(this);
 	}//EOF
 	
 	
@@ -41,7 +42,7 @@ public class SInt
 	{
 		if(_value == value)return;	
 		_value = value;
-		_signal.change.dispatch(new GenericEvent());
+		_signal.change.dispatch();
 	}//EOF
 	
 	
@@ -50,7 +51,7 @@ public class SInt
 	/**
 	 * signal getter function 
 	 */
-	public function get signal():IntSignalSet
+	public function get signal():GenericSignalSet
 	{
 		return this._signal;
 	}//EOF
@@ -66,23 +67,5 @@ public class SInt
 		return "[SInt value="+_value+"]";
 	}//EOF
 	
-}//EOC
-}//EOP
-
-/*Secret Classes*/
-import ir.tahanzadeh.stype.deluxes.DeluxeSignalSet;
-import ir.tahanzadeh.stype.deluxes.SInt;
-import org.osflash.signals.DeluxeSignal;
-
-class IntSignalSet extends DeluxeSignalSet
-{
-	public function IntSignalSet(target:SInt) 
-	{
-		super(target);
-	}
-	
-	public function get change():DeluxeSignal
-	{
-		return getDeluxeSignal('change');
-	}
-}//EOC
+}//eoc
+}//eop

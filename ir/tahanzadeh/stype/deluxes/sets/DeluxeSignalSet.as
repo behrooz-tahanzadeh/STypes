@@ -1,4 +1,4 @@
-package ir.tahanzadeh.stype.deluxes
+package ir.tahanzadeh.stype.deluxes.sets
 {
 /* import declarations */
 import flash.utils.Dictionary;
